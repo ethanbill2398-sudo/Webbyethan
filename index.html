@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web By Ethan — Making Saskatoon Businesses Look Better Online</title>
+  <meta name="description" content="Web design & development for Saskatoon service companies. Plumbers, HVAC, electricians — get a website that actually brings in leads." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Bebas Neue', 'sans-serif'],
+            body:    ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --red:    #D42B2B;
+      --red-lt: #E84040;
+      --green:  #1E4D2B;
+      --green-lt: #2D6B3E;
+      --black:  #1a1a1a;
+      --gray1:  #F4F0E8;
+      --gray2:  #EDEAE0;
+      --white:  #FFFFFF;
+      --white70: rgba(0,0,0,0.55);
+      --white40: rgba(0,0,0,0.40);
+      --white10: rgba(0,0,0,0.07);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #FFFFFF; color: #1a1a1a; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+    /* Noise overlay */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 999; opacity: 0.06;
+    }
+
+    /* Grid */
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(212,43,43,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,43,43,0.06) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+
+    /* ── Buttons ── */
+    .btn-red {
+      display: inline-block; text-decoration: none;
+      background: var(--red); color: #fff;
+      font-family: 'Inter', sans-serif; font-weight: 700;
+      font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 15px 36px; border-radius: 4px; border: none; cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 0 28px rgba(212,43,43,0.5);
+    }
+    .btn-red:hover { background: var(--red-lt); box-shadow: 0 0 48px rgba(212,43,43,0.8), 0 8px 32px rgba(0,0,0,0.4); transform: translateY(-2px); }
+
+    .btn-green {
+      display: inline-block; text-decoration: none;
+      background: var(--green); color: #fff;
+      font-family: 'Inter', sans-serif; font-weight: 700;
+      font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 15px 36px; border-radius: 4px; border: none; cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 0 24px rgba(30,77,43,0.4);
+    }
+    .btn-green:hover { background: var(--green-lt); transform: translateY(-2px); }
+
+    .btn-outline {
+      display: inline-block; text-decoration: none;
+      background: transparent; color: rgba(0,0,0,0.75);
+      font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 13px 32px; border-radius: 4px;
+      border: 2px solid rgba(0,0,0,0.25);
+      transition: all 0.2s ease;
+    }
+    .btn-outline:hover { border-color: rgba(0,0,0,0.6); color: #1a1a1a; background: rgba(212,43,43,0.05); }
+
+    /* ── Nav ── */
+    .nav-link {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(0,0,0,0.65);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-link:hover { color: #1a1a1a; }
+
+    /* ── Service cards ── */
+    .service-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(0,0,0,0.09);
+      border-radius: 14px; padding: 32px;
+      transition: all 0.3s ease; position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(212,43,43,0.06) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .service-card:hover { border-color: rgba(212,43,43,0.35); transform: translateY(-4px); box-shadow: 0 4px 24px rgba(0,0,0,0.07), 0 0 24px rgba(212,43,43,0.08); }
+    .service-card:hover::before { opacity: 1; }
+
+    /* ── Section label ── */
+    .label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--red);
+    }
+
+    /* ── Check icon ── */
+    .check-red  { width:20px;height:20px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0; }
+    .check-green{ width:20px;height:20px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0; }
+
+    /* ── Marquee ── */
+    .marquee-track { display:flex;width:max-content;animation:marquee 32s linear infinite; }
+    .marquee-track:hover { animation-play-state:paused; }
+    @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+    /* ── Stat number ── */
+    .stat-num { font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5.5vw,56px);color:var(--red);line-height:1; }
+
+    /* ── Testimonial ── */
+    .tcard {
+      background:#FFFFFF;border:1px solid rgba(0,0,0,0.09);
+      border-radius:16px;padding:32px;transition:border-color 0.3s;
+    }
+    .tcard:hover { border-color:rgba(212,43,43,0.25); }
+
+    /* ── FAQ ── */
+    .faq-item { border-bottom:1px solid rgba(0,0,0,0.1); }
+    .faq-q {
+      width:100%;text-align:left;background:none;border:none;
+      padding:20px 0;cursor:pointer;display:flex;justify-content:space-between;
+      align-items:center;font-family:'Inter',sans-serif;font-weight:600;
+      font-size:15px;color:#1a1a1a;transition:color 0.2s;
+    }
+    .faq-q:hover { color:var(--red); }
+    .faq-a { max-height:0;overflow:hidden;transition:max-height 0.4s ease; }
+    .faq-a.open { max-height:300px; }
+    .faq-icon { transition:transform 0.3s;flex-shrink:0;margin-left:16px; }
+    .faq-icon.open { transform:rotate(45deg); }
+
+    /* ── Reveal ── */
+    .reveal { opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease; }
+    .reveal.visible { opacity:1;transform:translateY(0); }
+
+    /* ── Step big number ── */
+    .step-bg { font-family:'Bebas Neue',sans-serif;font-size:88px;color:rgba(212,43,43,0.12);line-height:1;position:absolute;top:-16px;left:-4px;pointer-events:none;user-select:none; }
+
+    /* ── Process connector ── */
+    @media(min-width:768px){
+      .process-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:2px;position:relative; }
+      .process-grid::before { content:'';position:absolute;top:56px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--red),rgba(212,43,43,0.2));z-index:0; }
+    }
+
+    @media(max-width:768px){
+      .two-col { grid-template-columns:1fr !important; gap:40px !important; }
+      .step-bg { font-size:60px; }
+    }
+
+    /* ── Cursor trail ── */
+    .cursor-dot {
+      position: fixed;
+      width: 12px; height: 12px;
+      background: var(--red);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.15s ease;
+      mix-blend-mode: normal;
+    }
+    .trail-card {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.6) rotate(0deg);
+      transition: opacity 0s;
+      will-change: transform, opacity;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    #hero-section { cursor: none; }
+
+    /* ── Logo image (black bg, blend in) ── */
+    .logo-img { object-fit:contain; }
+
+    /* ── Green accent bar ── */
+    .green-bar { background:var(--green);padding:12px 0;overflow:hidden; }
+
+    /* pulse dot */
+    @keyframes pulseDot {
+      0%,100%{box-shadow:0 0 0 0 rgba(212,43,43,0.6)}
+      50%{box-shadow:0 0 0 6px rgba(212,43,43,0)}
+    }
+    .pulse-dot { animation:pulseDot 2s ease-in-out infinite; }
+
+  @keyframes heroFloat {
+    0%,100% { transform: translateY(0px) rotate(-1deg); }
+    50%      { transform: translateY(-14px) rotate(1deg); }
+  }
+
+  /* ── Laptop Intro ── */
+  #laptop-intro {
+    position: fixed; inset: 0; z-index: 999;
+    background: #0c0c0c;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    transition: opacity 0.85s cubic-bezier(0.4,0,0.2,1);
+  }
+  #laptop-intro.fade-out { opacity: 0; pointer-events: none; }
+  #laptop-scene { perspective: 1400px; perspective-origin: 50% 55%; }
+  #laptop-wrap { transform-style: preserve-3d; position: relative; width: 540px; }
+  #laptop-lid {
+    width: 540px; height: 340px;
+    background: linear-gradient(160deg,#252525,#1a1a1a);
+    border-radius: 14px 14px 4px 4px;
+    transform-origin: bottom center;
+    transform: rotateX(82deg);
+    transform-style: preserve-3d;
+    position: relative;
+    border: 2px solid #333; border-bottom: none;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+  }
+  #laptop-lid::before {
+    content:''; position:absolute; top:10px; left:50%; transform:translateX(-50%);
+    width:7px; height:7px; border-radius:50%;
+    background:#222; border:1px solid #333;
+  }
+  #screen-bezel {
+    position: absolute; inset: 14px 18px 12px 18px;
+    background: #fff; border-radius: 6px; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  #screen-glow {
+    position: absolute; inset: 0; z-index: 1;
+    background: radial-gradient(ellipse 90% 70% at 50% 45%, rgba(30,77,43,0.55) 0%, rgba(212,43,43,0.2) 55%, transparent 75%);
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+  #screen-content {
+    position: relative; z-index: 2;
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    opacity: 0; transform: scale(0.97);
+    overflow: hidden;
+  }
+  #laptop-base {
+    width: 540px; height: 30px;
+    background: linear-gradient(to bottom,#232323,#1c1c1c);
+    border-radius: 4px 4px 12px 12px;
+    border: 2px solid #333; border-top: none;
+    position: relative;
+  }
+  #laptop-base::after {
+    content:''; position:absolute; bottom:5px; left:50%; transform:translateX(-50%);
+    width:90px; height:7px; background:#252525; border-radius:4px;
+  }
+  #scroll-hint {
+    position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%);
+    color: rgba(255,255,255,0.35);
+    font-family: 'Inter',sans-serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase; text-align: center;
+    animation: scrollArrow 2.2s ease-in-out infinite;
+  }
+  #scroll-hint::after { content:'↓'; display:block; margin-top:7px; font-size:15px; }
+  @keyframes scrollArrow {
+    0%,100% { opacity:0.35; transform:translateX(-50%) translateY(0); }
+    50% { opacity:0.8; transform:translateX(-50%) translateY(7px); }
+  }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════ LAPTOP INTRO ═══════════════════════════ -->
+<div id="laptop-intro">
+  <div id="laptop-scene">
+    <div id="laptop-wrap">
+      <div id="laptop-lid">
+        <div id="screen-bezel">
+          <div id="screen-glow"></div>
+          <div id="screen-content">
+
+            <!-- Mini nav -->
+            <div style="background:#fff;border-bottom:1px solid rgba(0,0,0,0.07);padding:5px 12px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
+              <img src="logo.png" style="height:18px;width:auto;object-fit:contain;" onerror="this.style.display='none'" />
+              <div style="display:flex;gap:8px;align-items:center;">
+                <div style="width:22px;height:2px;background:rgba(0,0,0,0.12);border-radius:2px;"></div>
+                <div style="width:22px;height:2px;background:rgba(0,0,0,0.12);border-radius:2px;"></div>
+                <div style="width:22px;height:2px;background:rgba(0,0,0,0.12);border-radius:2px;"></div>
+                <div style="background:#D42B2B;color:#fff;font-size:5px;font-family:'Inter',sans-serif;font-weight:800;padding:3px 7px;border-radius:2px;letter-spacing:0.05em;text-transform:uppercase;">GET A QUOTE</div>
+              </div>
+            </div>
+
+            <!-- Mini hero -->
+            <div style="background:#fff;padding:12px 14px 10px;display:flex;align-items:center;gap:10px;flex:1;">
+              <div style="flex:1;min-width:0;">
+                <!-- Badge -->
+                <div style="display:inline-flex;align-items:center;gap:3px;background:rgba(212,43,43,0.08);border:1px solid rgba(212,43,43,0.2);border-radius:100px;padding:2px 7px;margin-bottom:6px;">
+                  <div style="width:3px;height:3px;background:#D42B2B;border-radius:50%;"></div>
+                  <span style="font-size:4.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#D42B2B;font-family:'Inter',sans-serif;">Saskatoon, SK</span>
+                </div>
+                <!-- Headline -->
+                <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;line-height:0.92;color:#1a1a1a;margin-bottom:7px;white-space:nowrap;">
+                  MAKING<br/>SASKATOON<br/><span style="color:#D42B2B;">BUSINESSES</span><br/>LOOK BETTER<br/>ONLINE
+                </div>
+                <!-- CTA row -->
+                <div style="display:flex;gap:4px;margin-top:7px;flex-wrap:wrap;">
+                  <div style="background:#D42B2B;color:#fff;font-size:4.5px;font-weight:700;padding:3px 7px;border-radius:2px;font-family:'Inter',sans-serif;letter-spacing:0.05em;text-transform:uppercase;white-space:nowrap;">Get My Quote →</div>
+                  <div style="border:1px solid rgba(0,0,0,0.18);color:rgba(0,0,0,0.65);font-size:4.5px;font-weight:600;padding:3px 7px;border-radius:2px;font-family:'Inter',sans-serif;white-space:nowrap;">See What I Build</div>
+                </div>
+              </div>
+              <!-- Logo on right -->
+              <img src="logo.png" style="width:64px;height:auto;object-fit:contain;flex-shrink:0;" onerror="this.style.display='none'" />
+            </div>
+
+            <!-- Mini green stats bar -->
+            <div style="background:#1E4D2B;padding:5px 14px;display:flex;gap:0;justify-content:center;flex-shrink:0;">
+              <div style="text-align:center;flex:1;">
+                <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;color:#fff;line-height:1;">3</div>
+                <div style="font-size:3.5px;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.08em;font-family:'Inter',sans-serif;margin-top:1px;">Day Build</div>
+              </div>
+              <div style="width:1px;background:rgba(255,255,255,0.15);margin:2px 0;"></div>
+              <div style="text-align:center;flex:1;">
+                <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;color:#fff;line-height:1;">✓</div>
+                <div style="font-size:3.5px;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.08em;font-family:'Inter',sans-serif;margin-top:1px;">Pre-Built</div>
+              </div>
+              <div style="width:1px;background:rgba(255,255,255,0.15);margin:2px 0;"></div>
+              <div style="text-align:center;flex:1;">
+                <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;color:#fff;line-height:1;">100%</div>
+                <div style="font-size:3.5px;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.08em;font-family:'Inter',sans-serif;margin-top:1px;">Satisfaction</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div id="laptop-base"></div>
+    </div>
+  </div>
+  <div id="scroll-hint">Scroll to open</div>
+</div>
+
+<!-- ═══════════════════════════ NAV ═══════════════════════════ -->
+<nav id="nav" style="position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 24px;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06);transition:all 0.3s ease;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;">
+
+    <!-- Logo -->
+    <a href="#" style="text-decoration:none;display:flex;align-items:center;">
+      <img src="logo.png" alt="Web By Ethan" class="logo-img"
+           style="height:48px;width:auto;"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <!-- Fallback if logo.png not found -->
+      <div style="display:none;align-items:center;gap:10px;">
+        <div style="width:38px;height:38px;background:var(--red);border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:17px;color:#fff;flex-shrink:0;">WE</div>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.04em;color:#1a1a1a;">Web By Ethan</span>
+      </div>
+    </a>
+
+    <!-- Desktop links -->
+    <div class="hidden md:flex" style="align-items:center;gap:36px;">
+      <a href="#services"    class="nav-link">Services</a>
+      <a href="#process"     class="nav-link">Process</a>
+      <a href="#results"     class="nav-link">Results</a>
+      <a href="#faq"         class="nav-link">FAQ</a>
+    </div>
+
+    <!-- CTA -->
+    <a href="mailto:webdesignbyethan@gmail.com" class="btn-red hidden md:inline-block" style="padding:11px 22px;font-size:12px;">
+      Get a Free Quote
+    </a>
+
+    <!-- Hamburger -->
+    <button id="ham" onclick="toggleMenu()" class="md:hidden"
+            style="background:none;border:none;cursor:pointer;padding:8px;color:#1a1a1a;">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mob" style="display:none;flex-direction:column;gap:16px;padding:20px 16px;background:#FFFFFF;border-top:1px solid rgba(0,0,0,0.06);margin-top:10px;">
+    <a href="#services" class="nav-link" onclick="toggleMenu()">Services</a>
+    <a href="#process"  class="nav-link" onclick="toggleMenu()">Process</a>
+    <a href="#results"  class="nav-link" onclick="toggleMenu()">Results</a>
+    <a href="#faq"      class="nav-link" onclick="toggleMenu()">FAQ</a>
+    <a href="mailto:webdesignbyethan@gmail.com" class="btn-red" style="text-align:center;margin-top:4px;">Get a Free Quote</a>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+<section id="hero-section" style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 24px 80px;position:relative;overflow:hidden;cursor:none;background:#FFFFFF;">
+
+  <!-- Subtle glow orbs -->
+  <div style="position:absolute;width:600px;height:600px;background:rgba(30,77,43,0.06);border-radius:50%;filter:blur(100px);top:-100px;right:-100px;pointer-events:none;"></div>
+  <div style="position:absolute;width:400px;height:400px;background:rgba(212,43,43,0.05);border-radius:50%;filter:blur(80px);bottom:-80px;left:-60px;pointer-events:none;"></div>
+
+  <div style="max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:2;display:grid;grid-template-columns:1fr auto;gap:64px;align-items:center;" class="two-col">
+
+    <div>
+      <!-- Live badge -->
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(212,43,43,0.08);border:1px solid rgba(212,43,43,0.25);border-radius:100px;padding:6px 16px;margin-bottom:28px;">
+        <div class="pulse-dot" style="width:7px;height:7px;background:var(--red);border-radius:50%;"></div>
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--red);">Saskatoon, SK</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,9.5vw,118px);line-height:0.91;letter-spacing:0.01em;margin-bottom:12px;color:#1a1a1a;">
+        MAKING<br/>
+        SASKATOON<br/>
+        <span style="color:var(--red);">BUSINESSES</span><br/>
+        LOOK BETTER<br/>
+        ONLINE
+      </h1>
+
+      <!-- Byline -->
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:36px;padding-top:8px;">
+        <div style="height:2px;width:40px;background:var(--green);border-radius:2px;"></div>
+        <span style="font-size:18px;letter-spacing:0.04em;color:rgba(0,0,0,0.6);">
+          👾 &nbsp;<strong style="color:#1a1a1a;font-weight:700;">🕸️ by Ethan</strong>
+        </span>
+      </div>
+
+      <p style="font-size:clamp(15px,2vw,18px);color:rgba(0,0,0,0.55);max-width:540px;line-height:1.7;margin-bottom:44px;">
+        I build high-converting websites for <strong style="color:#1a1a1a;">plumbers, HVAC companies,
+        and electricians</strong> that turn online searches into booked jobs.
+      </p>
+
+      <!-- CTAs -->
+      <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:56px;">
+        <a href="mailto:webdesignbyethan@gmail.com" class="btn-red" style="font-size:14px;">
+          Get My Free Quote →
+        </a>
+        <a href="#services" class="btn-outline">
+          See What I Build
+        </a>
+      </div>
+
+      <!-- Stats row -->
+      <div style="display:flex;flex-wrap:wrap;gap:36px;padding-top:36px;border-top:1px solid rgba(0,0,0,0.1);">
+        <div>
+          <div class="stat-num">3</div>
+          <div style="font-size:12px;color:rgba(0,0,0,0.45);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;">Day Turnaround</div>
+        </div>
+        <div style="width:1px;height:60px;background:rgba(0,0,0,0.1);"></div>
+        <div>
+          <div class="stat-num">✓</div>
+          <div style="font-size:12px;color:rgba(0,0,0,0.45);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;">Pre-Built Available</div>
+        </div>
+        <div style="width:1px;height:60px;background:rgba(0,0,0,0.1);"></div>
+        <div>
+          <div class="stat-num">100%</div>
+          <div style="font-size:12px;color:rgba(0,0,0,0.45);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;">Satisfaction</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logo hero image -->
+    <div class="hidden md:block" style="flex-shrink:0;position:relative;">
+      <div style="position:absolute;inset:-60px;background:radial-gradient(ellipse 65% 55% at 50% 50%,rgba(30,77,43,0.1) 0%,transparent 70%);pointer-events:none;z-index:0;"></div>
+      <img src="logo.png" alt="Web By Ethan"
+        style="position:relative;z-index:1;width:360px;height:auto;object-fit:contain;
+               filter:drop-shadow(0 20px 60px rgba(30,77,43,0.2)) drop-shadow(0 4px 12px rgba(0,0,0,0.08));
+               animation:heroFloat 4s ease-in-out infinite;"
+        onerror="this.style.display='none'" />
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════ RED MARQUEE ═══════════════════════════ -->
+<div style="background:var(--red);padding:13px 0;overflow:hidden;position:relative;z-index:10;">
+  <div class="marquee-track">
+    <span style="white-space:nowrap;padding:0 40px;font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:0.1em;color:#fff;">
+      PLUMBERS &nbsp;✦&nbsp; HVAC COMPANIES &nbsp;✦&nbsp; ELECTRICIANS &nbsp;✦&nbsp; ROOFERS &nbsp;✦&nbsp; LANDSCAPERS &nbsp;✦&nbsp; PEST CONTROL &nbsp;✦&nbsp; PAINTERS &nbsp;✦&nbsp; CONTRACTORS &nbsp;✦&nbsp;
+    </span>
+    <span style="white-space:nowrap;padding:0 40px;font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:0.1em;color:#fff;" aria-hidden="true">
+      PLUMBERS &nbsp;✦&nbsp; HVAC COMPANIES &nbsp;✦&nbsp; ELECTRICIANS &nbsp;✦&nbsp; ROOFERS &nbsp;✦&nbsp; LANDSCAPERS &nbsp;✦&nbsp; PEST CONTROL &nbsp;✦&nbsp; PAINTERS &nbsp;✦&nbsp; CONTRACTORS &nbsp;✦&nbsp;
+    </span>
+    <span style="white-space:nowrap;padding:0 40px;font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:0.1em;color:#fff;" aria-hidden="true">
+      PLUMBERS &nbsp;✦&nbsp; HVAC COMPANIES &nbsp;✦&nbsp; ELECTRICIANS &nbsp;✦&nbsp; ROOFERS &nbsp;✦&nbsp; LANDSCAPERS &nbsp;✦&nbsp; PEST CONTROL &nbsp;✦&nbsp; PAINTERS &nbsp;✦&nbsp; CONTRACTORS &nbsp;✦&nbsp;
+    </span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════ PAIN ═══════════════════════════ -->
+<section style="padding:100px 24px;background:var(--gray1);" class="reveal">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;" class="two-col">
+
+    <div>
+      <div class="label" style="margin-bottom:16px;">The Problem</div>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,5.5vw,68px);line-height:0.93;margin-bottom:24px;color:#1a1a1a;">
+        YOUR COMPETITOR<br/>IS GETTING THE CALL.<br/><span style="color:var(--red);">YOU'RE NOT.</span>
+      </h2>
+      <p style="color:rgba(0,0,0,0.6);font-size:16px;line-height:1.75;margin-bottom:18px;">
+        Every day someone in Saskatoon searches "plumber near me" or "HVAC repair" — and your competitor with a professional website gets the call. You don't.
+      </p>
+      <p style="color:rgba(0,0,0,0.6);font-size:16px;line-height:1.75;">
+        A weak website (or no website) costs you thousands every month in missed jobs. I fix that — fast.
+      </p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="background:#FFFFFF;border:1px solid rgba(212,43,43,0.18);border-radius:12px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start;">
+        <span style="font-size:22px;flex-shrink:0;">😤</span>
+        <div><div style="font-weight:700;margin-bottom:4px;font-size:15px;color:#1a1a1a;">Leads going to competitors</div>
+        <div style="color:rgba(0,0,0,0.5);font-size:13px;">97% of people research local service companies online before calling.</div></div>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid rgba(212,43,43,0.18);border-radius:12px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start;">
+        <span style="font-size:22px;flex-shrink:0;">📉</span>
+        <div><div style="font-weight:700;margin-bottom:4px;font-size:15px;color:#1a1a1a;">Ugly websites kill trust instantly</div>
+        <div style="color:rgba(0,0,0,0.5);font-size:13px;">You have under 8 seconds to make a first impression online.</div></div>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid rgba(212,43,43,0.18);border-radius:12px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start;">
+        <span style="font-size:22px;flex-shrink:0;">📵</span>
+        <div><div style="font-weight:700;margin-bottom:4px;font-size:15px;color:#1a1a1a;">No site = no calls = no growth</div>
+        <div style="color:rgba(0,0,0,0.5);font-size:13px;">Relying on word-of-mouth alone is not a scalable strategy.</div></div>
+      </div>
+      <div style="background:rgba(30,77,43,0.08);border:1px solid rgba(30,77,43,0.4);border-radius:12px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start;">
+        <span style="font-size:22px;flex-shrink:0;">✅</span>
+        <div><div style="font-weight:700;margin-bottom:4px;font-size:15px;color:#1E4D2B;">Fixed in 3 days — guaranteed</div>
+        <div style="color:rgba(0,0,0,0.6);font-size:13px;">A professional site built for your trade, live in under a week.</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════ SERVICES ═══════════════════════════ -->
+<section id="services" style="padding:100px 24px;background:#FFFFFF;" class="reveal">
+  <div style="max-width:1200px;margin:0 auto;">
+
+    <div style="text-align:center;margin-bottom:60px;">
+      <div class="label" style="margin-bottom:14px;">What I Build</div>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,6vw,70px);line-height:0.93;color:#1a1a1a;">
+        WEBSITES THAT WORK AS<br/><span style="color:var(--red);">HARD AS YOU DO</span>
+      </h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px;">
+
+      <div class="service-card">
+        <div style="width:46px;height:46px;background:rgba(212,43,43,0.1);border:1px solid rgba(212,43,43,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;font-size:22px;">🔧</div>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">Plumbing</h3>
+        <p style="color:rgba(0,0,0,0.55);font-size:14px;line-height:1.7;margin-bottom:18px;">Emergency service pages, click-to-call, service area maps, and trust badges that get you hired over the big guys.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;">
+          <span style="font-size:11px;background:rgba(212,43,43,0.1);border:1px solid rgba(212,43,43,0.2);padding:3px 10px;border-radius:20px;color:rgba(0,0,0,0.65);">Emergency CTA</span>
+          <span style="font-size:11px;background:rgba(212,43,43,0.1);border:1px solid rgba(212,43,43,0.2);padding:3px 10px;border-radius:20px;color:rgba(0,0,0,0.65);">Service Areas</span>
+          <span style="font-size:11px;background:rgba(212,43,43,0.1);border:1px solid rgba(212,43,43,0.2);padding:3px 10px;border-radius:20px;color:rgba(0,0,0,0.65);">Reviews</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div style="width:46px;height:46px;background:rgba(212,43,43,0.1);border:1px solid rgba(212,43,43,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;font-size:22px;">❄️</div>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">HVAC</h3>
+        <p style="color:rgba(0,0,0,0.55);font-size:14px;line-height:1.7;margin-bottom:18px;">Seasonal promo pages, maintenance plan upsells, booking forms, and financing info that fill your schedule year-round.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;">
+          <span style="font-size:11px;background:rgba(212,43,43,0.1);border:1px solid rgba(212,43,43,0.2);padding:3px 10px;border-radius:20px;color:rgba(0,0,0,0.65);">Seasonal Pages</span>
+          <span style="font-size:11px;background:rgba(212,43,43,0.1);border:1px solid rgba(212,43,43,0.2);padding:3px 10px;border-radius:20px;color:rgba(0,0,0,0.65);">Financing CTAs</span>
+          <span style="font-size:11px;background:rgba(212,43,43,0.1);border:1px solid rgba(212,43,43,0.2);padding:3px 10px;border-radius:20px;color:rgba(0,0,0,0.65);">Booking Forms</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div style="width:46px;height:46px;background:rgba(212,43,43,0.1);border:1px solid rgba(212,43,43,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;font-size:22px;">⚡</div>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">Electrical</h3>
+        <p style="color:rgba(0,0,0,0.55);font-size:14px;line-height:1.7;margin-bottom:18px;">License & insurance trust signals, panel upgrade pages, residential & commercial sections, and lead forms that convert.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;">
+          <span style="font-size:11px;background:rgba(212,43,43,0.1);border:1px solid rgba(212,43,43,0.2);padding:3px 10px;border-radius:20px;color:rgba(0,0,0,0.65);">Trust Signals</span>
+          <span style="font-size:11px;background:rgba(212,43,43,0.1);border:1px solid rgba(212,43,43,0.2);padding:3px 10px;border-radius:20px;color:rgba(0,0,0,0.65);">Lead Forms</span>
+          <span style="font-size:11px;background:rgba(212,43,43,0.1);border:1px solid rgba(212,43,43,0.2);padding:3px 10px;border-radius:20px;color:rgba(0,0,0,0.65);">Service Pages</span>
+        </div>
+      </div>
+
+      <!-- Wide card — included features -->
+      <div class="service-card" style="grid-column:1/-1;background:linear-gradient(135deg,#FFFFFF 0%,rgba(30,77,43,0.06) 100%);border-color:rgba(30,77,43,0.3);">
+        <div style="display:flex;flex-wrap:wrap;gap:40px;align-items:center;">
+          <div style="flex:1;min-width:260px;">
+            <div style="width:46px;height:46px;background:rgba(30,77,43,0.2);border:1px solid rgba(30,77,43,0.4);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:22px;">🏆</div>
+            <h3 style="font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">Everything Included</h3>
+            <p style="color:rgba(0,0,0,0.55);font-size:14px;line-height:1.65;">Every site comes pre-built and ready to customize — no waiting months, no back-and-forth. Your business online in 3 days.</p>
+          </div>
+          <div style="flex:2;min-width:260px;display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;"><div class="check-green"><svg width="10" height="10" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="2,5 5,8 9,2"/></svg></div>Mobile-first design</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;"><div class="check-green"><svg width="10" height="10" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="2,5 5,8 9,2"/></svg></div>Pre-built &amp; launch-ready</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;"><div class="check-green"><svg width="10" height="10" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="2,5 5,8 9,2"/></svg></div>Click-to-call</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;"><div class="check-green"><svg width="10" height="10" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="2,5 5,8 9,2"/></svg></div>Google review integration</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;"><div class="check-green"><svg width="10" height="10" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="2,5 5,8 9,2"/></svg></div>Fast load speed</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;"><div class="check-green"><svg width="10" height="10" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="2,5 5,8 9,2"/></svg></div>Lead capture forms</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;"><div class="check-green"><svg width="10" height="10" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="2,5 5,8 9,2"/></svg></div>Service area pages</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;"><div class="check-green"><svg width="10" height="10" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="2,5 5,8 9,2"/></svg></div>Easy content updates</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════ GREEN MARQUEE ═══════════════════════════ -->
+<div class="green-bar">
+  <div class="marquee-track" style="animation-direction:reverse;">
+    <span style="white-space:nowrap;padding:0 40px;font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:0.12em;color:rgba(255,255,255,0.85);">
+      MOBILE RESPONSIVE &nbsp;◆&nbsp; PRE-BUILT SITES &nbsp;◆&nbsp; FAST LOADING &nbsp;◆&nbsp; BUILT TO CONVERT &nbsp;◆&nbsp; 3-DAY DELIVERY &nbsp;◆&nbsp; SASKATOON BASED &nbsp;◆&nbsp; CUSTOM CODED &nbsp;◆&nbsp; PROFESSIONALLY DESIGNED &nbsp;◆&nbsp;
+    </span>
+    <span style="white-space:nowrap;padding:0 40px;font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:0.12em;color:rgba(255,255,255,0.85);" aria-hidden="true">
+      MOBILE RESPONSIVE &nbsp;◆&nbsp; PRE-BUILT SITES &nbsp;◆&nbsp; FAST LOADING &nbsp;◆&nbsp; BUILT TO CONVERT &nbsp;◆&nbsp; 3-DAY DELIVERY &nbsp;◆&nbsp; SASKATOON BASED &nbsp;◆&nbsp; CUSTOM CODED &nbsp;◆&nbsp; PROFESSIONALLY DESIGNED &nbsp;◆&nbsp;
+    </span>
+    <span style="white-space:nowrap;padding:0 40px;font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:0.12em;color:rgba(255,255,255,0.85);" aria-hidden="true">
+      MOBILE RESPONSIVE &nbsp;◆&nbsp; PRE-BUILT SITES &nbsp;◆&nbsp; FAST LOADING &nbsp;◆&nbsp; BUILT TO CONVERT &nbsp;◆&nbsp; 3-DAY DELIVERY &nbsp;◆&nbsp; SASKATOON BASED &nbsp;◆&nbsp; CUSTOM CODED &nbsp;◆&nbsp; PROFESSIONALLY DESIGNED &nbsp;◆&nbsp;
+    </span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════ WHY ETHAN ═══════════════════════════ -->
+<section id="results" style="padding:100px 24px;background:var(--green);" class="reveal">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;" class="two-col">
+
+    <!-- Stat bento -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+      <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:28px;text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:60px;color:var(--red);line-height:1;">3</div>
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-top:6px;">Day Delivery</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:28px;text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:60px;color:var(--red);line-height:1;">$0</div>
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-top:6px;">Hidden Fees</div>
+      </div>
+      <div style="background:var(--red);border-radius:16px;padding:28px;grid-column:1/-1;text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;line-height:1.1;margin-bottom:8px;">Built for Saskatoon Service Pros</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.8);line-height:1.6;">I specialize exclusively in trade & service businesses. I know exactly what your local customers need to see before they pick up the phone.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:28px;text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:60px;color:var(--red);line-height:1;">100%</div>
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-top:6px;">Custom Code</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:28px;text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:60px;color:#fff;line-height:1;">24h</div>
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-top:6px;">Response Time</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="label" style="margin-bottom:16px;">Why Web By Ethan</div>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,58px);line-height:0.93;margin-bottom:22px;color:#fff;">
+        NOT JUST PRETTY.<br/><span style="color:var(--red);">BUILT TO CONVERT.</span>
+      </h2>
+      <p style="color:rgba(255,255,255,0.6);font-size:15px;line-height:1.75;margin-bottom:20px;">
+        Big agencies build generic websites. I build conversion machines. Every element — from your headline to your contact form — is engineered to make someone pick up the phone and call <em>your</em> number.
+      </p>
+      <p style="color:rgba(255,255,255,0.6);font-size:15px;line-height:1.75;margin-bottom:36px;">
+        I'm Saskatoon-based and focused on local service companies. I know what makes a homeowner choose your business over a competitor.
+      </p>
+      <a href="mailto:webdesignbyethan@gmail.com" class="btn-red">Start Your Project →</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════ PROCESS ═══════════════════════════ -->
+<section id="process" style="padding:100px 24px;background:var(--gray1);" class="reveal">
+  <div style="max-width:1200px;margin:0 auto;">
+
+    <div style="text-align:center;margin-bottom:64px;">
+      <div class="label" style="margin-bottom:14px;">The Process</div>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,6vw,70px);line-height:0.93;color:#1a1a1a;">
+        ZERO TO LIVE IN <span style="color:var(--red);">3 DAYS</span>
+      </h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;">
+
+      <div style="position:relative;padding:40px 26px 26px;background:#FFFFFF;border:1px solid rgba(0,0,0,0.09);border-radius:14px;">
+        <div class="step-bg">01</div>
+        <div style="width:38px;height:38px;background:var(--red);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-weight:800;font-size:14px;color:#fff;position:relative;z-index:1;">1</div>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">Discovery Call</h3>
+        <p style="color:rgba(0,0,0,0.5);font-size:13px;line-height:1.65;">Free 30-min call. I learn your business, customers, and goals.</p>
+      </div>
+
+      <div style="position:relative;padding:40px 26px 26px;background:#FFFFFF;border:1px solid rgba(0,0,0,0.09);border-radius:14px;">
+        <div class="step-bg">02</div>
+        <div style="width:38px;height:38px;background:var(--red);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-weight:800;font-size:14px;color:#fff;position:relative;z-index:1;">2</div>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">Design & Build</h3>
+        <p style="color:rgba(0,0,0,0.5);font-size:13px;line-height:1.65;">Custom-coded site built in 3–5 days. No templates, no page builders.</p>
+      </div>
+
+      <div style="position:relative;padding:40px 26px 26px;background:#FFFFFF;border:1px solid rgba(0,0,0,0.09);border-radius:14px;">
+        <div class="step-bg">03</div>
+        <div style="width:38px;height:38px;background:var(--red);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-weight:800;font-size:14px;color:#fff;position:relative;z-index:1;">3</div>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">Review & Refine</h3>
+        <p style="color:rgba(0,0,0,0.5);font-size:13px;line-height:1.65;">You review everything. Two rounds of revisions until it's perfect.</p>
+      </div>
+
+      <div style="position:relative;padding:40px 26px 26px;background:linear-gradient(135deg,rgba(212,43,43,0.06) 0%,rgba(212,43,43,0.02) 100%);border:1px solid rgba(212,43,43,0.3);border-radius:14px;">
+        <div class="step-bg" style="color:rgba(212,43,43,0.25);">04</div>
+        <div style="width:38px;height:38px;background:var(--red);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-weight:800;font-size:14px;color:#fff;position:relative;z-index:1;">4</div>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">Go Live & Grow</h3>
+        <p style="color:rgba(0,0,0,0.5);font-size:13px;line-height:1.65;">Site goes live. I handle hosting, domain setup, and any tweaks you need after launch.</p>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:52px;">
+      <a href="mailto:webdesignbyethan@gmail.com" class="btn-red" style="font-size:14px;">
+        Book My Free Discovery Call →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════ TESTIMONIALS ═══════════════════════════ -->
+<section style="padding:100px 24px;background:#FFFFFF;" class="reveal">
+  <div style="max-width:1200px;margin:0 auto;">
+
+    <div style="text-align:center;margin-bottom:56px;">
+      <div class="label" style="margin-bottom:14px;">Results</div>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,6vw,70px);line-height:0.93;color:#1a1a1a;">
+        DON'T TAKE <span style="color:var(--red);">MY WORD</span> FOR IT
+      </h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px;">
+
+      <div class="tcard">
+        <div style="color:var(--red);font-size:17px;margin-bottom:18px;">★★★★★</div>
+        <p style="color:rgba(0,0,0,0.7);font-size:14px;line-height:1.75;margin-bottom:22px;">"Ethan built us a new site and within the first month we got 12 new service calls from people who found us on Google. Paid for itself in the first week."</p>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:42px;height:42px;background:linear-gradient(135deg,var(--red),#8B1A1A);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;flex-shrink:0;">M</div>
+          <div><div style="font-weight:700;font-size:14px;color:#1a1a1a;">Mike D.</div><div style="font-size:12px;color:rgba(0,0,0,0.38);">Dependable Plumbing Co.</div></div>
+        </div>
+      </div>
+
+      <div class="tcard">
+        <div style="color:var(--red);font-size:17px;margin-bottom:18px;">★★★★★</div>
+        <p style="color:rgba(0,0,0,0.7);font-size:14px;line-height:1.75;margin-bottom:22px;">"Our old site was embarrassing. Ethan redesigned everything and our Google ranking jumped from page 4 to page 1 in under 2 months. The phone doesn't stop ringing."</p>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:42px;height:42px;background:linear-gradient(135deg,var(--red),#8B1A1A);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;flex-shrink:0;">J</div>
+          <div><div style="font-weight:700;font-size:14px;color:#1a1a1a;">Jason R.</div><div style="font-size:12px;color:rgba(0,0,0,0.38);">Arctic Air HVAC Services</div></div>
+        </div>
+      </div>
+
+      <div class="tcard">
+        <div style="color:var(--red);font-size:17px;margin-bottom:18px;">★★★★★</div>
+        <p style="color:rgba(0,0,0,0.7);font-size:14px;line-height:1.75;margin-bottom:22px;">"Fast, professional, and he actually knows the service industry. My electrician website was done in 3 days and looks better than any competitor. Worth every penny."</p>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:42px;height:42px;background:linear-gradient(135deg,var(--red),#8B1A1A);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;flex-shrink:0;">T</div>
+          <div><div style="font-weight:700;font-size:14px;color:#1a1a1a;">Tony S.</div><div style="font-size:12px;color:rgba(0,0,0,0.38);">Spark Right Electrical</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════ FAQ ═══════════════════════════ -->
+<section id="faq" style="padding:100px 24px;background:var(--gray1);" class="reveal">
+  <div style="max-width:760px;margin:0 auto;">
+
+    <div style="text-align:center;margin-bottom:56px;">
+      <div class="label" style="margin-bottom:14px;">Questions</div>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,6vw,70px);line-height:0.93;color:#1a1a1a;">
+        COMMON <span style="color:var(--red);">QUESTIONS</span>
+      </h2>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="faq(this)">How long does it take to build my website?
+        <svg class="faq-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-a"><p style="color:rgba(0,0,0,0.6);font-size:14px;line-height:1.75;padding-bottom:20px;">Most websites are done in 3–5 business days from when I have your info. Complex multi-page sites may take up to 7 days. I'll give you an exact timeline on our discovery call.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="faq(this)">Do I need to provide content and photos?
+        <svg class="faq-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-a"><p style="color:rgba(0,0,0,0.6);font-size:14px;line-height:1.75;padding-bottom:20px;">I write all the copy — just give me the basics about your business. For photos I use professional stock images, but real job photos always convert better if you have them.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="faq(this)">Will my website show up on Google?
+        <svg class="faq-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-a"><p style="color:rgba(0,0,0,0.6);font-size:14px;line-height:1.75;padding-bottom:20px;">Every site is built with clean structure, fast load times, and proper page titles — the basics that help search engines understand your business. Beyond that, showing up in Google takes time and more than just a website.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="faq(this)">I already have a website — can you redesign it?
+        <svg class="faq-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-a"><p style="color:rgba(0,0,0,0.6);font-size:14px;line-height:1.75;padding-bottom:20px;">Absolutely — redesigns are a big part of what I do. I'll take your brand and rebuild it from scratch into something that actually converts. Same process, same turnaround.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="faq(this)">Who handles hosting and the domain?
+        <svg class="faq-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-a"><p style="color:rgba(0,0,0,0.6);font-size:14px;line-height:1.75;padding-bottom:20px;">I handle all setup — hosting, domain connection, SSL certificate, speed optimization. You own everything. Hosting runs about $10–15/month direct to you, no markup from me.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="faq(this)">What happens after the site launches?
+        <svg class="faq-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-a"><p style="color:rgba(0,0,0,0.6);font-size:14px;line-height:1.75;padding-bottom:20px;">Once your site is live it's yours. I'm available for ongoing updates, changes, or additions on a paid basis — just email me and I'll get back to you within 24 hours.</p></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+<footer style="background:var(--green);border-top:1px solid rgba(255,255,255,0.1);padding:56px 24px 28px;">
+  <div style="max-width:1200px;margin:0 auto;">
+
+    <div style="display:flex;flex-wrap:wrap;gap:48px;justify-content:space-between;margin-bottom:44px;">
+
+      <div style="max-width:300px;">
+        <img src="logo.png" alt="Web By Ethan" style="height:56px;width:auto;margin-bottom:14px;object-fit:contain;"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div style="display:none;align-items:center;gap:10px;margin-bottom:14px;">
+          <div style="width:36px;height:36px;background:var(--red);border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:16px;color:#fff;">WE</div>
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.04em;color:#fff;">Web By Ethan</span>
+        </div>
+        <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.65;">Making Saskatoon businesses look better online. High-converting websites for local service companies.</p>
+      </div>
+
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:14px;">Navigation</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="#services" style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Services</a>
+          <a href="#process"  style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Process</a>
+          <a href="#results"  style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Results</a>
+          <a href="#faq"      style="font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">FAQ</a>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:14px;">Get In Touch</div>
+        <a href="mailto:webdesignbyethan@gmail.com" style="display:flex;align-items:center;gap:8px;color:var(--red);font-size:14px;font-weight:600;text-decoration:none;margin-bottom:10px;transition:color 0.2s;" onmouseover="this.style.color='var(--red-lt)'" onmouseout="this.style.color='var(--red)'">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          webdesignbyethan@gmail.com
+        </a>
+        <p style="color:rgba(255,255,255,0.6);font-size:12px;margin-bottom:18px;">Response within 24 hours</p>
+        <a href="mailto:webdesignbyethan@gmail.com" class="btn-red" style="font-size:12px;padding:10px 20px;">Free Quote</a>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;">
+      <p style="font-size:12px;color:rgba(255,255,255,0.6);">© 2026 Web By Ethan. All rights reserved.</p>
+      <p style="font-size:12px;color:rgba(255,255,255,0.6);">🇨🇦 Proudly Saskatoon Based.</p>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  // Sticky nav
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      nav.style.background = 'rgba(255,255,255,0.97)';
+      nav.style.backdropFilter = 'blur(14px)';
+      nav.style.borderBottom = '1px solid rgba(0,0,0,0.08)';
+      nav.style.padding = '10px 24px';
+    } else {
+      nav.style.background = 'rgba(255,255,255,0.95)';
+      nav.style.backdropFilter = 'blur(12px)';
+      nav.style.borderBottom = '1px solid rgba(0,0,0,0.06)';
+      nav.style.padding = '16px 24px';
+    }
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    const m = document.getElementById('mob');
+    m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
+  }
+
+  // FAQ
+  function faq(btn) {
+    const ans = btn.nextElementSibling;
+    const ico = btn.querySelector('.faq-icon');
+    const open = ans.classList.contains('open');
+    document.querySelectorAll('.faq-a.open').forEach(a => {
+      a.classList.remove('open');
+      a.previousElementSibling.querySelector('.faq-icon').classList.remove('open');
+    });
+    if (!open) { ans.classList.add('open'); ico.classList.add('open'); }
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ── Cursor dot ──
+  const cursorDot = document.createElement('div');
+  cursorDot.className = 'cursor-dot';
+  document.body.appendChild(cursorDot);
+  let cursorVisible = false;
+
+  // ── Trail cards data ──
+  const CARDS = [
+    { emoji: '🔧', label: 'Plumbing Sites',   bg: '#D42B2B', color: '#fff', w: 120, h: 100 },
+    { emoji: '❄️', label: 'HVAC Sites',       bg: '#1E4D2B', color: '#fff', w: 110, h: 96  },
+    { emoji: '⚡', label: 'Electricians',     bg: '#fff',    color: '#080808', w: 115, h: 96  },
+    { emoji: '🌿', label: 'Landscapers',      bg: '#1E4D2B', color: '#fff', w: 118, h: 96  },
+    { emoji: '🏠', label: 'Local Biz',        bg: '#D42B2B', color: '#fff', w: 108, h: 96  },
+    { emoji: '⭐', label: '5-Star Sites',     bg: '#222',    color: '#D42B2B', w: 112, h: 96  },
+    { emoji: '📱', label: 'Mobile-First',     bg: '#fff',    color: '#080808', w: 120, h: 96  },
+    { emoji: '🚀', label: 'Fast Delivery',    bg: '#D42B2B', color: '#fff', w: 118, h: 100 },
+    { emoji: '🎯', label: 'Built to Convert', bg: '#1E4D2B', color: '#fff', w: 130, h: 96  },
+    { emoji: '🕸️', label: 'Web by Ethan',    bg: '#111',    color: '#fff', w: 118, h: 96  },
+  ];
+
+  // Pre-create a pool of card DOM elements
+  const POOL_SIZE = 14;
+  const pool = [];
+  for (let i = 0; i < POOL_SIZE; i++) {
+    const el = document.createElement('div');
+    el.className = 'trail-card';
+    document.body.appendChild(el);
+    pool.push({ el, active: false });
+  }
+
+  let cardIndex = 0;
+  let lastX = 0, lastY = 0;
+  let lastSpawnTime = 0;
+  const SPAWN_INTERVAL = 120; // ms between spawns
+  const MIN_DIST = 60;        // min pixels moved before spawning
+  let heroActive = false;
+
+  const heroSection = document.getElementById('hero-section');
+
+  heroSection.addEventListener('mouseenter', () => {
+    heroActive = true;
+    cursorDot.style.opacity = '1';
+  });
+  heroSection.addEventListener('mouseleave', () => {
+    heroActive = false;
+    cursorDot.style.opacity = '0';
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    const mx = e.clientX, my = e.clientY;
+
+    // Move cursor dot
+    cursorDot.style.left = mx + 'px';
+    cursorDot.style.top  = my + 'px';
+
+    if (!heroActive) return;
+
+    const now = Date.now();
+    const dx = mx - lastX, dy = my - lastY;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+
+    if (dist < MIN_DIST || now - lastSpawnTime < SPAWN_INTERVAL) return;
+
+    lastX = mx; lastY = my; lastSpawnTime = now;
+
+    // Pick a card data
+    const data = CARDS[cardIndex % CARDS.length];
+    cardIndex++;
+
+    // Find a free slot in pool (or steal the oldest)
+    let slot = pool.find(s => !s.active);
+    if (!slot) slot = pool[cardIndex % POOL_SIZE];
+
+    const el = slot.el;
+    slot.active = true;
+
+    // Random slight rotation based on direction
+    const angle = (Math.atan2(dy, dx) * 180 / Math.PI) * 0.15 + (Math.random() - 0.5) * 14;
+
+    // Style the card
+    el.style.cssText = `
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      left: ${mx}px;
+      top: ${my}px;
+      width: ${data.w}px;
+      height: ${data.h}px;
+      border-radius: 12px;
+      background: ${data.bg};
+      color: ${data.color};
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.5) rotate(${angle}deg);
+      transition: opacity 0s, transform 0s;
+      will-change: transform, opacity;
+    `;
+    el.innerHTML = `<span style="font-size:22px;line-height:1;">${data.emoji}</span><span>${data.label}</span>`;
+
+    // Force reflow then animate in
+    el.offsetHeight;
+    el.style.transition = 'opacity 0.18s ease, transform 0.35s cubic-bezier(0.34,1.56,0.64,1)';
+    el.style.opacity = '1';
+    el.style.transform = `translate(-50%, -50%) scale(1) rotate(${angle}deg)`;
+
+    // Animate out after delay
+    setTimeout(() => {
+      el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
+      el.style.opacity = '0';
+      el.style.transform = `translate(-50%, calc(-50% - 20px)) scale(0.85) rotate(${angle}deg)`;
+      setTimeout(() => { slot.active = false; }, 500);
+    }, 600);
+  });
+
+  /* ── Laptop Intro ── */
+  (function() {
+    const intro   = document.getElementById('laptop-intro');
+    const lid     = document.getElementById('laptop-lid');
+    const glow    = document.getElementById('screen-glow');
+    const content = document.getElementById('screen-content');
+    if (!intro || !lid) return;
+
+    document.body.style.overflow = 'hidden';
+
+    const MAX_DELTA = 480;
+    let accumulated = 0;
+    let done = false;
+
+    function setProgress(p) {
+      const angle = 82 - (90 * p);
+      lid.style.transform = 'rotateX(' + angle + 'deg)';
+
+      const glowP = Math.max(0, (p - 0.25) / 0.75);
+      glow.style.opacity = glowP * 0.95;
+
+      const contentP = Math.max(0, (p - 0.6) / 0.4);
+      content.style.opacity = contentP;
+      content.style.transform = 'scale(' + (0.85 + contentP * 0.15) + ')';
+
+      if (p >= 1 && !done) {
+        done = true;
+        setTimeout(function() {
+          intro.classList.add('fade-out');
+          setTimeout(function() {
+            intro.style.display = 'none';
+            document.body.style.overflow = '';
+          }, 850);
+        }, 320);
+      }
+    }
+
+    window.addEventListener('wheel', function(e) {
+      if (done) return;
+      e.preventDefault();
+      accumulated += Math.abs(e.deltaY);
+      setProgress(Math.min(1, accumulated / MAX_DELTA));
+    }, { passive: false });
+
+    let touchY = 0;
+    window.addEventListener('touchstart', function(e) {
+      touchY = e.touches[0].clientY;
+    }, { passive: true });
+    window.addEventListener('touchmove', function(e) {
+      if (done) return;
+      e.preventDefault();
+      const dy = touchY - e.touches[0].clientY;
+      touchY = e.touches[0].clientY;
+      accumulated += Math.abs(dy) * 2.5;
+      setProgress(Math.min(1, accumulated / MAX_DELTA));
+    }, { passive: false });
+  })();
+
+</script>
+</body>
+</html>
