@@ -65,7 +65,7 @@
       background: var(--red); color: #fff;
       font-family: 'Inter', sans-serif; font-weight: 700;
       font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase;
-      padding: 15px 36px; border-radius: 4px; border: none; cursor: pointer;
+      padding: 15px 36px; border-radius: 100px; border: none; cursor: pointer;
       transition: all 0.2s ease;
       box-shadow: 0 0 28px rgba(212,43,43,0.5);
     }
@@ -76,7 +76,7 @@
       background: var(--green); color: #fff;
       font-family: 'Inter', sans-serif; font-weight: 700;
       font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase;
-      padding: 15px 36px; border-radius: 4px; border: none; cursor: pointer;
+      padding: 15px 36px; border-radius: 100px; border: none; cursor: pointer;
       transition: all 0.2s ease;
       box-shadow: 0 0 24px rgba(30,77,43,0.4);
     }
@@ -87,7 +87,7 @@
       background: transparent; color: rgba(0,0,0,0.75);
       font-family: 'Inter', sans-serif; font-weight: 600;
       font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase;
-      padding: 13px 32px; border-radius: 4px;
+      padding: 13px 32px; border-radius: 100px;
       border: 2px solid rgba(0,0,0,0.25);
       transition: all 0.2s ease;
     }
@@ -192,79 +192,12 @@
     50%      { transform: translateY(-14px) rotate(1deg); }
   }
 
-  /* ── Laptop Intro ── */
-  #laptop-intro {
-    position: fixed; inset: 0; z-index: 999;
-    background: #0c0c0c;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    transition: opacity 0.85s cubic-bezier(0.4,0,0.2,1);
-  }
-  #laptop-intro.fade-out { opacity: 0; pointer-events: none; }
-  #laptop-scene { perspective: 1400px; perspective-origin: 50% 55%; }
-  #laptop-wrap { transform-style: preserve-3d; position: relative; width: 540px; }
-  #laptop-lid {
-    width: 540px; height: 340px;
-    background: linear-gradient(160deg,#252525,#1a1a1a);
-    border-radius: 14px 14px 4px 4px;
-    transform-origin: bottom center;
-    transform: rotateX(82deg);
-    transform-style: preserve-3d;
-    position: relative;
-    border: 2px solid #333; border-bottom: none;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
-  }
-  #laptop-lid::before {
-    content:''; position:absolute; top:10px; left:50%; transform:translateX(-50%);
-    width:7px; height:7px; border-radius:50%;
-    background:#222; border:1px solid #333;
-  }
-  #screen-bezel {
-    position: absolute; inset: 14px 18px 12px 18px;
-    background: #fff; border-radius: 6px; overflow: hidden;
-    display: flex; flex-direction: column;
-  }
-  #screen-glow {
-    position: absolute; inset: 0; z-index: 1;
-    background: radial-gradient(ellipse 90% 70% at 50% 45%, rgba(30,77,43,0.55) 0%, rgba(212,43,43,0.2) 55%, transparent 75%);
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.4s ease;
-  }
-  #screen-content {
-    position: relative; z-index: 2;
-    width: 100%; height: 100%;
-    display: flex; flex-direction: column;
-    opacity: 0; transform: scale(0.97);
-    overflow: hidden;
-  }
-  #laptop-base {
-    width: 540px; height: 30px;
-    background: linear-gradient(to bottom,#232323,#1c1c1c);
-    border-radius: 4px 4px 12px 12px;
-    border: 2px solid #333; border-top: none;
-    position: relative;
-  }
-  #laptop-base::after {
-    content:''; position:absolute; bottom:5px; left:50%; transform:translateX(-50%);
-    width:90px; height:7px; background:#252525; border-radius:4px;
-  }
-  #scroll-hint {
-    position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%);
-    color: rgba(255,255,255,0.35);
-    font-family: 'Inter',sans-serif; font-size: 11px; font-weight: 600;
-    letter-spacing: 0.18em; text-transform: uppercase; text-align: center;
-    animation: scrollArrow 2.2s ease-in-out infinite;
-  }
-  #scroll-hint::after { content:'↓'; display:block; margin-top:7px; font-size:15px; }
-  @keyframes scrollArrow {
-    0%,100% { opacity:0.35; transform:translateX(-50%) translateY(0); }
-    50% { opacity:0.8; transform:translateX(-50%) translateY(7px); }
-  }
   </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════ LAPTOP INTRO ═══════════════════════════ -->
-<div id="laptop-intro">
+<!-- laptop intro removed -->
+<div id="laptop-intro" style="display:none;">
   <div id="laptop-scene">
     <div id="laptop-wrap">
       <div id="laptop-lid">
@@ -900,63 +833,6 @@
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 
-  /* ── Laptop Intro ── */
-  (function() {
-    const intro   = document.getElementById('laptop-intro');
-    const lid     = document.getElementById('laptop-lid');
-    const glow    = document.getElementById('screen-glow');
-    const content = document.getElementById('screen-content');
-    if (!intro || !lid) return;
-
-    document.body.style.overflow = 'hidden';
-
-    const MAX_DELTA = 480;
-    let accumulated = 0;
-    let done = false;
-
-    function setProgress(p) {
-      const angle = 82 - (90 * p);
-      lid.style.transform = 'rotateX(' + angle + 'deg)';
-
-      const glowP = Math.max(0, (p - 0.25) / 0.75);
-      glow.style.opacity = glowP * 0.95;
-
-      const contentP = Math.max(0, (p - 0.6) / 0.4);
-      content.style.opacity = contentP;
-      content.style.transform = 'scale(' + (0.85 + contentP * 0.15) + ')';
-
-      if (p >= 1 && !done) {
-        done = true;
-        setTimeout(function() {
-          intro.classList.add('fade-out');
-          setTimeout(function() {
-            intro.style.display = 'none';
-            document.body.style.overflow = '';
-          }, 850);
-        }, 320);
-      }
-    }
-
-    window.addEventListener('wheel', function(e) {
-      if (done) return;
-      e.preventDefault();
-      accumulated += Math.abs(e.deltaY);
-      setProgress(Math.min(1, accumulated / MAX_DELTA));
-    }, { passive: false });
-
-    let touchY = 0;
-    window.addEventListener('touchstart', function(e) {
-      touchY = e.touches[0].clientY;
-    }, { passive: true });
-    window.addEventListener('touchmove', function(e) {
-      if (done) return;
-      e.preventDefault();
-      const dy = touchY - e.touches[0].clientY;
-      touchY = e.touches[0].clientY;
-      accumulated += Math.abs(dy) * 2.5;
-      setProgress(Math.min(1, accumulated / MAX_DELTA));
-    }, { passive: false });
-  })();
 
 /* ── Hero WebGL Shader Background ── */
 (function() {
