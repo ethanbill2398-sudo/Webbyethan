@@ -2,11 +2,13 @@
   "name": "web-by-ethan",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "cms": "tinacms dev -c \"echo 'Static site - no dev server needed'\"",
-    "build:cms": "tinacms build"
+    "build:cms": "tinacms build",
+    "dev:cms": "tinacms dev"
   },
   "dependencies": {
-    "tinacms": "^2.6.0"
+    "@tinacms/cli": "^2.2.1",
+    "tinacms": "^2.10.1"
   }
 }

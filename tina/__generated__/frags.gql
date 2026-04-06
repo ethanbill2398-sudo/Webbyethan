@@ -1,0 +1,106 @@
+fragment HomeParts on Home {
+  __typename
+  hero {
+    __typename
+    badge
+    headline
+    byline
+    description
+    cta_primary
+    cta_secondary
+    stats {
+      __typename
+      value
+      label
+    }
+  }
+  pain {
+    __typename
+    label
+    headline
+    description
+    description2
+    cards {
+      __typename
+      icon
+      title
+      body
+    }
+  }
+  services {
+    __typename
+    label
+    headline
+    cards {
+      __typename
+      icon
+      tag
+      title
+      description
+    }
+    everything_included {
+      __typename
+      title
+      description
+      features
+    }
+  }
+  results {
+    __typename
+    label
+    headline
+    description
+    description2
+    cta
+    stats {
+      __typename
+      value
+      label
+    }
+    promo_card {
+      __typename
+      title
+      description
+    }
+  }
+  process {
+    __typename
+    label
+    headline
+    steps {
+      __typename
+      number
+      title
+      description
+    }
+    cta
+  }
+  testimonials {
+    __typename
+    label
+    headline
+    items {
+      __typename
+      quote
+      name
+      company
+      initial
+    }
+  }
+  faq {
+    __typename
+    label
+    headline
+    items {
+      __typename
+      question
+      answer
+    }
+  }
+  footer {
+    __typename
+    tagline
+    email
+    copyright
+  }
+}
