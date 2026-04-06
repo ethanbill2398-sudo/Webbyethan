@@ -1,0 +1,184 @@
+{
+  "hero": {
+    "badge": "Saskatoon, SK",
+    "headline": "MAKING<br/>\nSASKATOON<br/>\n<span style=\"color:var(--red);\">BUSINESSES</span><br/>\nLOOK BETTER<br/>\nONLINE",
+    "byline": "👾 &nbsp;<strong style=\"color:#1a1a1a;font-weight:700;\">🕸️ by Ethan</strong>",
+    "description": "I build high-converting websites for <strong style=\"color:#1a1a1a;\">plumbers, HVAC companies, and electricians</strong> that turn online searches into booked jobs.",
+    "cta_primary": "Get My Free Quote →",
+    "cta_secondary": "See What I Build",
+    "stats": [
+      { "value": "3", "label": "Day Turnaround" },
+      { "value": "✓", "label": "Pre-Built Available" },
+      { "value": "100%", "label": "Satisfaction" }
+    ]
+  },
+  "pain": {
+    "label": "The Problem",
+    "headline": "YOUR COMPETITOR<br/>IS GETTING THE CALL.<br/><span style=\"color:var(--red);\">YOU'RE NOT.</span>",
+    "description": "Every day someone in Saskatoon searches \"plumber near me\" or \"HVAC repair\" — and your competitor with a professional website gets the call. You don't.",
+    "description2": "A weak website (or no website) costs you thousands every month in missed jobs. I fix that — fast.",
+    "cards": [
+      {
+        "icon": "😤",
+        "title": "Leads going to competitors",
+        "body": "97% of people research local service companies online before calling."
+      },
+      {
+        "icon": "📉",
+        "title": "Ugly websites kill trust instantly",
+        "body": "You have under 8 seconds to make a first impression online."
+      },
+      {
+        "icon": "📵",
+        "title": "No site = no calls = no growth",
+        "body": "Relying on word-of-mouth alone is not a scalable strategy."
+      },
+      {
+        "icon": "✅",
+        "title": "Fixed in 3 days — guaranteed",
+        "body": "A professional site built for your trade, live in under a week."
+      }
+    ]
+  },
+  "services": {
+    "label": "What I Build",
+    "headline": "WEBSITES THAT WORK AS<br/><span style=\"color:var(--red);\">HARD AS YOU DO</span>",
+    "cards": [
+      {
+        "icon": "🔧",
+        "tag": "Plumbers",
+        "title": "Plumbing",
+        "description": "Emergency service pages, click-to-call, service area maps, and trust badges that get you hired over the big guys."
+      },
+      {
+        "icon": "❄️",
+        "tag": "HVAC",
+        "title": "HVAC",
+        "description": "Seasonal promo pages, maintenance plan upsells, booking forms, and financing info that fill your schedule year-round."
+      },
+      {
+        "icon": "⚡",
+        "tag": "Electricians",
+        "title": "Electrical",
+        "description": "License & insurance trust signals, panel upgrade pages, residential & commercial sections, and lead forms that convert."
+      }
+    ],
+    "everything_included": {
+      "title": "Everything Included",
+      "description": "Every site comes pre-built and ready to customize — no waiting months, no back-and-forth. Your business online in 3 days.",
+      "features": [
+        "Mobile-first design",
+        "Pre-built & launch-ready",
+        "Click-to-call",
+        "Google review integration",
+        "Fast load speed",
+        "Lead capture forms",
+        "Service area pages",
+        "Easy content updates"
+      ]
+    }
+  },
+  "results": {
+    "label": "Why Web By Ethan",
+    "headline": "NOT JUST PRETTY.<br/><span style=\"color:var(--red);\">BUILT TO CONVERT.</span>",
+    "description": "Big agencies build generic websites. I build conversion machines. Every element — from your headline to your contact form — is engineered to make someone pick up the phone and call your number.",
+    "description2": "I'm Saskatoon-based and focused on local service companies. I know what makes a homeowner choose your business over a competitor.",
+    "cta": "Start Your Project →",
+    "stats": [
+      { "value": "3", "label": "Day Delivery" },
+      { "value": "$0", "label": "Hidden Fees" },
+      { "value": "100%", "label": "Custom Code" },
+      { "value": "24h", "label": "Response Time" }
+    ],
+    "promo_card": {
+      "title": "Built for Saskatoon Service Pros",
+      "description": "I specialize exclusively in trade & service businesses. I know exactly what your local customers need to see before they pick up the phone."
+    }
+  },
+  "process": {
+    "label": "The Process",
+    "headline": "ZERO TO LIVE IN <span style=\"color:var(--red);\">3 DAYS</span>",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Discovery Call",
+        "description": "Free 30-min call. I learn your business, customers, and goals."
+      },
+      {
+        "number": "02",
+        "title": "Design & Build",
+        "description": "Custom-coded site built in 3–5 days. No templates, no page builders."
+      },
+      {
+        "number": "03",
+        "title": "Review & Refine",
+        "description": "You review everything. Two rounds of revisions until it's perfect."
+      },
+      {
+        "number": "04",
+        "title": "Go Live & Grow",
+        "description": "Site goes live. I handle hosting, domain setup, and any tweaks you need after launch."
+      }
+    ],
+    "cta": "Book My Free Discovery Call →"
+  },
+  "testimonials": {
+    "label": "Results",
+    "headline": "DON'T TAKE <span style=\"color:var(--red);\">MY WORD</span> FOR IT",
+    "items": [
+      {
+        "quote": "Ethan built us a new site and within the first month we got 12 new service calls from people who found us on Google. Paid for itself in the first week.",
+        "name": "Mike D.",
+        "company": "Dependable Plumbing Co.",
+        "initial": "M"
+      },
+      {
+        "quote": "Our old site was embarrassing. Ethan redesigned everything and our Google ranking jumped from page 4 to page 1 in under 2 months. The phone doesn't stop ringing.",
+        "name": "Jason R.",
+        "company": "Arctic Air HVAC Services",
+        "initial": "J"
+      },
+      {
+        "quote": "Fast, professional, and he actually knows the service industry. My electrician website was done in 3 days and looks better than any competitor. Worth every penny.",
+        "name": "Tony S.",
+        "company": "Spark Right Electrical",
+        "initial": "T"
+      }
+    ]
+  },
+  "faq": {
+    "label": "Questions",
+    "headline": "COMMON <span style=\"color:var(--red);\">QUESTIONS</span>",
+    "items": [
+      {
+        "question": "How long does it take to build my website?",
+        "answer": "Most websites are done in 3–5 business days from when I have your info. Complex multi-page sites may take up to 7 days. I'll give you an exact timeline on our discovery call."
+      },
+      {
+        "question": "Do I need to provide content and photos?",
+        "answer": "I write all the copy — just give me the basics about your business. For photos I use professional stock images, but real job photos always convert better if you have them."
+      },
+      {
+        "question": "Will my website show up on Google?",
+        "answer": "Every site is built with clean structure, fast load times, and proper page titles — the basics that help search engines understand your business. Beyond that, showing up in Google takes time and more than just a website."
+      },
+      {
+        "question": "I already have a website — can you redesign it?",
+        "answer": "Absolutely — redesigns are a big part of what I do. I'll take your brand and rebuild it from scratch into something that actually converts. Same process, same turnaround."
+      },
+      {
+        "question": "Who handles hosting and the domain?",
+        "answer": "I handle all setup — hosting, domain connection, SSL certificate, speed optimization. You own everything. Hosting runs about $10–15/month direct to you, no markup from me."
+      },
+      {
+        "question": "What happens after the site launches?",
+        "answer": "Once your site is live it's yours. I'm available for ongoing updates, changes, or additions on a paid basis — just email me and I'll get back to you within 24 hours."
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Making Saskatoon businesses look better online. High-converting websites for local service companies.",
+    "email": "webdesignbyethan@gmail.com",
+    "copyright": "© 2026 Web By Ethan. All rights reserved."
+  }
+}

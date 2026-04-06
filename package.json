@@ -1,0 +1,12 @@
+{
+  "name": "web-by-ethan",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "cms": "tinacms dev -c \"echo 'Static site - no dev server needed'\"",
+    "build:cms": "tinacms build"
+  },
+  "dependencies": {
+    "tinacms": "^2.6.0"
+  }
+}

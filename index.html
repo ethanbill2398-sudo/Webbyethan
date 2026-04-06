@@ -329,11 +329,11 @@
       <!-- Live badge -->
       <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(212,43,43,0.08);border:1px solid rgba(212,43,43,0.25);border-radius:100px;padding:6px 16px;margin-bottom:28px;">
         <div class="pulse-dot" style="width:7px;height:7px;background:var(--red);border-radius:50%;"></div>
-        <span style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--red);">Saskatoon, SK</span>
+        <span data-cms="hero.badge" style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--red);">Saskatoon, SK</span>
       </div>
 
       <!-- Headline -->
-      <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,9.5vw,118px);line-height:0.91;letter-spacing:0.01em;margin-bottom:12px;color:#1a1a1a;">
+      <h1 data-cms="hero.headline" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,9.5vw,118px);line-height:0.91;letter-spacing:0.01em;margin-bottom:12px;color:#1a1a1a;">
         MAKING<br/>
         SASKATOON<br/>
         <span style="color:var(--red);">BUSINESSES</span><br/>
@@ -344,12 +344,12 @@
       <!-- Byline -->
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:36px;padding-top:8px;">
         <div style="height:2px;width:40px;background:var(--green);border-radius:2px;"></div>
-        <span style="font-size:18px;letter-spacing:0.04em;color:rgba(0,0,0,0.6);">
+        <span data-cms="hero.byline" style="font-size:18px;letter-spacing:0.04em;color:rgba(0,0,0,0.6);">
           👾 &nbsp;<strong style="color:#1a1a1a;font-weight:700;">🕸️ by Ethan</strong>
         </span>
       </div>
 
-      <p style="font-size:clamp(15px,2vw,18px);color:rgba(0,0,0,0.55);max-width:540px;line-height:1.7;margin-bottom:44px;">
+      <p data-cms="hero.description" style="font-size:clamp(15px,2vw,18px);color:rgba(0,0,0,0.55);max-width:540px;line-height:1.7;margin-bottom:44px;">
         I build high-converting websites for <strong style="color:#1a1a1a;">plumbers, HVAC companies,
         and electricians</strong> that turn online searches into booked jobs.
       </p>
@@ -357,28 +357,28 @@
       <!-- CTAs -->
       <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:56px;">
         <a href="mailto:webdesignbyethan@gmail.com" class="btn-red" style="font-size:14px;">
-          Get My Free Quote →
+          <span data-cms="hero.cta_primary">Get My Free Quote →</span>
         </a>
         <a href="#services" class="btn-outline">
-          See What I Build
+          <span data-cms="hero.cta_secondary">See What I Build</span>
         </a>
       </div>
 
       <!-- Stats row -->
       <div style="display:flex;flex-wrap:wrap;gap:36px;padding-top:36px;border-top:1px solid rgba(0,0,0,0.1);">
         <div>
-          <div class="stat-num">3</div>
-          <div style="font-size:12px;color:rgba(0,0,0,0.45);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;">Day Turnaround</div>
+          <div class="stat-num" data-cms="hero.stats.0.value">3</div>
+          <div data-cms="hero.stats.0.label" style="font-size:12px;color:rgba(0,0,0,0.45);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;">Day Turnaround</div>
         </div>
         <div style="width:1px;height:60px;background:rgba(0,0,0,0.1);"></div>
         <div>
-          <div class="stat-num">✓</div>
-          <div style="font-size:12px;color:rgba(0,0,0,0.45);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;">Pre-Built Available</div>
+          <div class="stat-num" data-cms="hero.stats.1.value">✓</div>
+          <div data-cms="hero.stats.1.label" style="font-size:12px;color:rgba(0,0,0,0.45);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;">Pre-Built Available</div>
         </div>
         <div style="width:1px;height:60px;background:rgba(0,0,0,0.1);"></div>
         <div>
-          <div class="stat-num">100%</div>
-          <div style="font-size:12px;color:rgba(0,0,0,0.45);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;">Satisfaction</div>
+          <div class="stat-num" data-cms="hero.stats.2.value">100%</div>
+          <div data-cms="hero.stats.2.label" style="font-size:12px;color:rgba(0,0,0,0.45);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;">Satisfaction</div>
         </div>
       </div>
     </div>
@@ -418,14 +418,14 @@
   <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;" class="two-col">
 
     <div>
-      <div class="label" style="margin-bottom:16px;">The Problem</div>
-      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,5.5vw,68px);line-height:0.93;margin-bottom:24px;color:#1a1a1a;">
+      <div class="label" data-cms="pain.label" style="margin-bottom:16px;">The Problem</div>
+      <h2 data-cms="pain.headline" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,5.5vw,68px);line-height:0.93;margin-bottom:24px;color:#1a1a1a;">
         YOUR COMPETITOR<br/>IS GETTING THE CALL.<br/><span style="color:var(--red);">YOU'RE NOT.</span>
       </h2>
-      <p style="color:rgba(0,0,0,0.6);font-size:16px;line-height:1.75;margin-bottom:18px;">
+      <p data-cms="pain.description" style="color:rgba(0,0,0,0.6);font-size:16px;line-height:1.75;margin-bottom:18px;">
         Every day someone in Saskatoon searches "plumber near me" or "HVAC repair" — and your competitor with a professional website gets the call. You don't.
       </p>
-      <p style="color:rgba(0,0,0,0.6);font-size:16px;line-height:1.75;">
+      <p data-cms="pain.description2" style="color:rgba(0,0,0,0.6);font-size:16px;line-height:1.75;">
         A weak website (or no website) costs you thousands every month in missed jobs. I fix that — fast.
       </p>
     </div>
@@ -462,8 +462,8 @@
   <div style="max-width:1200px;margin:0 auto;">
 
     <div style="text-align:center;margin-bottom:60px;">
-      <div class="label" style="margin-bottom:14px;">What I Build</div>
-      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,6vw,70px);line-height:0.93;color:#1a1a1a;">
+      <div class="label" data-cms="services.label" style="margin-bottom:14px;">What I Build</div>
+      <h2 data-cms="services.headline" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,6vw,70px);line-height:0.93;color:#1a1a1a;">
         WEBSITES THAT WORK AS<br/><span style="color:var(--red);">HARD AS YOU DO</span>
       </h2>
     </div>
@@ -472,8 +472,8 @@
 
       <div class="service-card">
         <div style="width:46px;height:46px;background:rgba(212,43,43,0.1);border:1px solid rgba(212,43,43,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;font-size:22px;">🔧</div>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">Plumbing</h3>
-        <p style="color:rgba(0,0,0,0.55);font-size:14px;line-height:1.7;margin-bottom:18px;">Emergency service pages, click-to-call, service area maps, and trust badges that get you hired over the big guys.</p>
+        <h3 data-cms="services.cards.0.title" style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">Plumbing</h3>
+        <p data-cms="services.cards.0.description" style="color:rgba(0,0,0,0.55);font-size:14px;line-height:1.7;margin-bottom:18px;">Emergency service pages, click-to-call, service area maps, and trust badges that get you hired over the big guys.</p>
         <div style="display:flex;flex-wrap:wrap;gap:7px;">
           <span style="font-size:11px;background:rgba(212,43,43,0.1);border:1px solid rgba(212,43,43,0.2);padding:3px 10px;border-radius:20px;color:rgba(0,0,0,0.65);">Emergency CTA</span>
           <span style="font-size:11px;background:rgba(212,43,43,0.1);border:1px solid rgba(212,43,43,0.2);padding:3px 10px;border-radius:20px;color:rgba(0,0,0,0.65);">Service Areas</span>
@@ -483,8 +483,8 @@
 
       <div class="service-card">
         <div style="width:46px;height:46px;background:rgba(212,43,43,0.1);border:1px solid rgba(212,43,43,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;font-size:22px;">❄️</div>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">HVAC</h3>
-        <p style="color:rgba(0,0,0,0.55);font-size:14px;line-height:1.7;margin-bottom:18px;">Seasonal promo pages, maintenance plan upsells, booking forms, and financing info that fill your schedule year-round.</p>
+        <h3 data-cms="services.cards.1.title" style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">HVAC</h3>
+        <p data-cms="services.cards.1.description" style="color:rgba(0,0,0,0.55);font-size:14px;line-height:1.7;margin-bottom:18px;">Seasonal promo pages, maintenance plan upsells, booking forms, and financing info that fill your schedule year-round.</p>
         <div style="display:flex;flex-wrap:wrap;gap:7px;">
           <span style="font-size:11px;background:rgba(212,43,43,0.1);border:1px solid rgba(212,43,43,0.2);padding:3px 10px;border-radius:20px;color:rgba(0,0,0,0.65);">Seasonal Pages</span>
           <span style="font-size:11px;background:rgba(212,43,43,0.1);border:1px solid rgba(212,43,43,0.2);padding:3px 10px;border-radius:20px;color:rgba(0,0,0,0.65);">Financing CTAs</span>
@@ -494,8 +494,8 @@
 
       <div class="service-card">
         <div style="width:46px;height:46px;background:rgba(212,43,43,0.1);border:1px solid rgba(212,43,43,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;font-size:22px;">⚡</div>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">Electrical</h3>
-        <p style="color:rgba(0,0,0,0.55);font-size:14px;line-height:1.7;margin-bottom:18px;">License & insurance trust signals, panel upgrade pages, residential & commercial sections, and lead forms that convert.</p>
+        <h3 data-cms="services.cards.2.title" style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">Electrical</h3>
+        <p data-cms="services.cards.2.description" style="color:rgba(0,0,0,0.55);font-size:14px;line-height:1.7;margin-bottom:18px;">License & insurance trust signals, panel upgrade pages, residential & commercial sections, and lead forms that convert.</p>
         <div style="display:flex;flex-wrap:wrap;gap:7px;">
           <span style="font-size:11px;background:rgba(212,43,43,0.1);border:1px solid rgba(212,43,43,0.2);padding:3px 10px;border-radius:20px;color:rgba(0,0,0,0.65);">Trust Signals</span>
           <span style="font-size:11px;background:rgba(212,43,43,0.1);border:1px solid rgba(212,43,43,0.2);padding:3px 10px;border-radius:20px;color:rgba(0,0,0,0.65);">Lead Forms</span>
@@ -508,8 +508,8 @@
         <div style="display:flex;flex-wrap:wrap;gap:40px;align-items:center;">
           <div style="flex:1;min-width:260px;">
             <div style="width:46px;height:46px;background:rgba(30,77,43,0.2);border:1px solid rgba(30,77,43,0.4);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:22px;">🏆</div>
-            <h3 style="font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">Everything Included</h3>
-            <p style="color:rgba(0,0,0,0.55);font-size:14px;line-height:1.65;">Every site comes pre-built and ready to customize — no waiting months, no back-and-forth. Your business online in 3 days.</p>
+            <h3 data-cms="services.everything_included.title" style="font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">Everything Included</h3>
+            <p data-cms="services.everything_included.description" style="color:rgba(0,0,0,0.55);font-size:14px;line-height:1.65;">Every site comes pre-built and ready to customize — no waiting months, no back-and-forth. Your business online in 3 days.</p>
           </div>
           <div style="flex:2;min-width:260px;display:grid;grid-template-columns:1fr 1fr;gap:14px;">
             <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;"><div class="check-green"><svg width="10" height="10" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="2,5 5,8 9,2"/></svg></div>Mobile-first design</div>
@@ -552,39 +552,39 @@
     <!-- Stat bento -->
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
       <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:28px;text-align:center;">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:60px;color:var(--red);line-height:1;">3</div>
-        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-top:6px;">Day Delivery</div>
+        <div data-cms="results.stats.0.value" style="font-family:'Bebas Neue',sans-serif;font-size:60px;color:var(--red);line-height:1;">3</div>
+        <div data-cms="results.stats.0.label" style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-top:6px;">Day Delivery</div>
       </div>
       <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:28px;text-align:center;">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:60px;color:var(--red);line-height:1;">$0</div>
-        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-top:6px;">Hidden Fees</div>
+        <div data-cms="results.stats.1.value" style="font-family:'Bebas Neue',sans-serif;font-size:60px;color:var(--red);line-height:1;">$0</div>
+        <div data-cms="results.stats.1.label" style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-top:6px;">Hidden Fees</div>
       </div>
       <div style="background:var(--red);border-radius:16px;padding:28px;grid-column:1/-1;text-align:center;">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;line-height:1.1;margin-bottom:8px;">Built for Saskatoon Service Pros</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.8);line-height:1.6;">I specialize exclusively in trade & service businesses. I know exactly what your local customers need to see before they pick up the phone.</div>
+        <div data-cms="results.promo_card.title" style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;line-height:1.1;margin-bottom:8px;">Built for Saskatoon Service Pros</div>
+        <div data-cms="results.promo_card.description" style="font-size:13px;color:rgba(255,255,255,0.8);line-height:1.6;">I specialize exclusively in trade & service businesses. I know exactly what your local customers need to see before they pick up the phone.</div>
       </div>
       <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:28px;text-align:center;">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:60px;color:var(--red);line-height:1;">100%</div>
-        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-top:6px;">Custom Code</div>
+        <div data-cms="results.stats.2.value" style="font-family:'Bebas Neue',sans-serif;font-size:60px;color:var(--red);line-height:1;">100%</div>
+        <div data-cms="results.stats.2.label" style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-top:6px;">Custom Code</div>
       </div>
       <div style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:28px;text-align:center;">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:60px;color:#fff;line-height:1;">24h</div>
-        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-top:6px;">Response Time</div>
+        <div data-cms="results.stats.3.value" style="font-family:'Bebas Neue',sans-serif;font-size:60px;color:#fff;line-height:1;">24h</div>
+        <div data-cms="results.stats.3.label" style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-top:6px;">Response Time</div>
       </div>
     </div>
 
     <div>
-      <div class="label" style="margin-bottom:16px;">Why Web By Ethan</div>
-      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,58px);line-height:0.93;margin-bottom:22px;color:#fff;">
+      <div class="label" data-cms="results.label" style="margin-bottom:16px;">Why Web By Ethan</div>
+      <h2 data-cms="results.headline" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,58px);line-height:0.93;margin-bottom:22px;color:#fff;">
         NOT JUST PRETTY.<br/><span style="color:var(--red);">BUILT TO CONVERT.</span>
       </h2>
-      <p style="color:rgba(255,255,255,0.6);font-size:15px;line-height:1.75;margin-bottom:20px;">
+      <p data-cms="results.description" style="color:rgba(255,255,255,0.6);font-size:15px;line-height:1.75;margin-bottom:20px;">
         Big agencies build generic websites. I build conversion machines. Every element — from your headline to your contact form — is engineered to make someone pick up the phone and call <em>your</em> number.
       </p>
-      <p style="color:rgba(255,255,255,0.6);font-size:15px;line-height:1.75;margin-bottom:36px;">
+      <p data-cms="results.description2" style="color:rgba(255,255,255,0.6);font-size:15px;line-height:1.75;margin-bottom:36px;">
         I'm Saskatoon-based and focused on local service companies. I know what makes a homeowner choose your business over a competitor.
       </p>
-      <a href="mailto:webdesignbyethan@gmail.com" class="btn-red">Start Your Project →</a>
+      <a href="mailto:webdesignbyethan@gmail.com" class="btn-red"><span data-cms="results.cta">Start Your Project →</span></a>
     </div>
 
   </div>
@@ -596,8 +596,8 @@
   <div style="max-width:1200px;margin:0 auto;">
 
     <div style="text-align:center;margin-bottom:64px;">
-      <div class="label" style="margin-bottom:14px;">The Process</div>
-      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,6vw,70px);line-height:0.93;color:#1a1a1a;">
+      <div class="label" data-cms="process.label" style="margin-bottom:14px;">The Process</div>
+      <h2 data-cms="process.headline" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,6vw,70px);line-height:0.93;color:#1a1a1a;">
         ZERO TO LIVE IN <span style="color:var(--red);">3 DAYS</span>
       </h2>
     </div>
@@ -607,36 +607,36 @@
       <div style="position:relative;padding:40px 26px 26px;background:#FFFFFF;border:1px solid rgba(0,0,0,0.09);border-radius:14px;">
         <div class="step-bg">01</div>
         <div style="width:38px;height:38px;background:var(--red);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-weight:800;font-size:14px;color:#fff;position:relative;z-index:1;">1</div>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">Discovery Call</h3>
-        <p style="color:rgba(0,0,0,0.5);font-size:13px;line-height:1.65;">Free 30-min call. I learn your business, customers, and goals.</p>
+        <h3 data-cms="process.steps.0.title" style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">Discovery Call</h3>
+        <p data-cms="process.steps.0.description" style="color:rgba(0,0,0,0.5);font-size:13px;line-height:1.65;">Free 30-min call. I learn your business, customers, and goals.</p>
       </div>
 
       <div style="position:relative;padding:40px 26px 26px;background:#FFFFFF;border:1px solid rgba(0,0,0,0.09);border-radius:14px;">
         <div class="step-bg">02</div>
         <div style="width:38px;height:38px;background:var(--red);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-weight:800;font-size:14px;color:#fff;position:relative;z-index:1;">2</div>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">Design & Build</h3>
-        <p style="color:rgba(0,0,0,0.5);font-size:13px;line-height:1.65;">Custom-coded site built in 3–5 days. No templates, no page builders.</p>
+        <h3 data-cms="process.steps.1.title" style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">Design & Build</h3>
+        <p data-cms="process.steps.1.description" style="color:rgba(0,0,0,0.5);font-size:13px;line-height:1.65;">Custom-coded site built in 3–5 days. No templates, no page builders.</p>
       </div>
 
       <div style="position:relative;padding:40px 26px 26px;background:#FFFFFF;border:1px solid rgba(0,0,0,0.09);border-radius:14px;">
         <div class="step-bg">03</div>
         <div style="width:38px;height:38px;background:var(--red);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-weight:800;font-size:14px;color:#fff;position:relative;z-index:1;">3</div>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">Review & Refine</h3>
-        <p style="color:rgba(0,0,0,0.5);font-size:13px;line-height:1.65;">You review everything. Two rounds of revisions until it's perfect.</p>
+        <h3 data-cms="process.steps.2.title" style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">Review & Refine</h3>
+        <p data-cms="process.steps.2.description" style="color:rgba(0,0,0,0.5);font-size:13px;line-height:1.65;">You review everything. Two rounds of revisions until it's perfect.</p>
       </div>
 
       <div style="position:relative;padding:40px 26px 26px;background:linear-gradient(135deg,rgba(212,43,43,0.06) 0%,rgba(212,43,43,0.02) 100%);border:1px solid rgba(212,43,43,0.3);border-radius:14px;">
         <div class="step-bg" style="color:rgba(212,43,43,0.25);">04</div>
         <div style="width:38px;height:38px;background:var(--red);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-weight:800;font-size:14px;color:#fff;position:relative;z-index:1;">4</div>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">Go Live & Grow</h3>
-        <p style="color:rgba(0,0,0,0.5);font-size:13px;line-height:1.65;">Site goes live. I handle hosting, domain setup, and any tweaks you need after launch.</p>
+        <h3 data-cms="process.steps.3.title" style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.02em;margin-bottom:10px;color:#1a1a1a;">Go Live & Grow</h3>
+        <p data-cms="process.steps.3.description" style="color:rgba(0,0,0,0.5);font-size:13px;line-height:1.65;">Site goes live. I handle hosting, domain setup, and any tweaks you need after launch.</p>
       </div>
 
     </div>
 
     <div style="text-align:center;margin-top:52px;">
       <a href="mailto:webdesignbyethan@gmail.com" class="btn-red" style="font-size:14px;">
-        Book My Free Discovery Call →
+        <span data-cms="process.cta">Book My Free Discovery Call →</span>
       </a>
     </div>
 
@@ -649,8 +649,8 @@
   <div style="max-width:1200px;margin:0 auto;">
 
     <div style="text-align:center;margin-bottom:56px;">
-      <div class="label" style="margin-bottom:14px;">Results</div>
-      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,6vw,70px);line-height:0.93;color:#1a1a1a;">
+      <div class="label" data-cms="testimonials.label" style="margin-bottom:14px;">Results</div>
+      <h2 data-cms="testimonials.headline" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,6vw,70px);line-height:0.93;color:#1a1a1a;">
         DON'T TAKE <span style="color:var(--red);">MY WORD</span> FOR IT
       </h2>
     </div>
@@ -659,28 +659,28 @@
 
       <div class="tcard">
         <div style="color:var(--red);font-size:17px;margin-bottom:18px;">★★★★★</div>
-        <p style="color:rgba(0,0,0,0.7);font-size:14px;line-height:1.75;margin-bottom:22px;">"Ethan built us a new site and within the first month we got 12 new service calls from people who found us on Google. Paid for itself in the first week."</p>
+        <p data-cms="testimonials.items.0.quote" style="color:rgba(0,0,0,0.7);font-size:14px;line-height:1.75;margin-bottom:22px;">"Ethan built us a new site and within the first month we got 12 new service calls from people who found us on Google. Paid for itself in the first week."</p>
         <div style="display:flex;align-items:center;gap:12px;">
-          <div style="width:42px;height:42px;background:linear-gradient(135deg,var(--red),#8B1A1A);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;flex-shrink:0;">M</div>
-          <div><div style="font-weight:700;font-size:14px;color:#1a1a1a;">Mike D.</div><div style="font-size:12px;color:rgba(0,0,0,0.38);">Dependable Plumbing Co.</div></div>
+          <div style="width:42px;height:42px;background:linear-gradient(135deg,var(--red),#8B1A1A);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;flex-shrink:0;" data-cms="testimonials.items.0.initial">M</div>
+          <div><div data-cms="testimonials.items.0.name" style="font-weight:700;font-size:14px;color:#1a1a1a;">Mike D.</div><div data-cms="testimonials.items.0.company" style="font-size:12px;color:rgba(0,0,0,0.38);">Dependable Plumbing Co.</div></div>
         </div>
       </div>
 
       <div class="tcard">
         <div style="color:var(--red);font-size:17px;margin-bottom:18px;">★★★★★</div>
-        <p style="color:rgba(0,0,0,0.7);font-size:14px;line-height:1.75;margin-bottom:22px;">"Our old site was embarrassing. Ethan redesigned everything and our Google ranking jumped from page 4 to page 1 in under 2 months. The phone doesn't stop ringing."</p>
+        <p data-cms="testimonials.items.1.quote" style="color:rgba(0,0,0,0.7);font-size:14px;line-height:1.75;margin-bottom:22px;">"Our old site was embarrassing. Ethan redesigned everything and our Google ranking jumped from page 4 to page 1 in under 2 months. The phone doesn't stop ringing."</p>
         <div style="display:flex;align-items:center;gap:12px;">
-          <div style="width:42px;height:42px;background:linear-gradient(135deg,var(--red),#8B1A1A);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;flex-shrink:0;">J</div>
-          <div><div style="font-weight:700;font-size:14px;color:#1a1a1a;">Jason R.</div><div style="font-size:12px;color:rgba(0,0,0,0.38);">Arctic Air HVAC Services</div></div>
+          <div style="width:42px;height:42px;background:linear-gradient(135deg,var(--red),#8B1A1A);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;flex-shrink:0;" data-cms="testimonials.items.1.initial">J</div>
+          <div><div data-cms="testimonials.items.1.name" style="font-weight:700;font-size:14px;color:#1a1a1a;">Jason R.</div><div data-cms="testimonials.items.1.company" style="font-size:12px;color:rgba(0,0,0,0.38);">Arctic Air HVAC Services</div></div>
         </div>
       </div>
 
       <div class="tcard">
         <div style="color:var(--red);font-size:17px;margin-bottom:18px;">★★★★★</div>
-        <p style="color:rgba(0,0,0,0.7);font-size:14px;line-height:1.75;margin-bottom:22px;">"Fast, professional, and he actually knows the service industry. My electrician website was done in 3 days and looks better than any competitor. Worth every penny."</p>
+        <p data-cms="testimonials.items.2.quote" style="color:rgba(0,0,0,0.7);font-size:14px;line-height:1.75;margin-bottom:22px;">"Fast, professional, and he actually knows the service industry. My electrician website was done in 3 days and looks better than any competitor. Worth every penny."</p>
         <div style="display:flex;align-items:center;gap:12px;">
-          <div style="width:42px;height:42px;background:linear-gradient(135deg,var(--red),#8B1A1A);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;flex-shrink:0;">T</div>
-          <div><div style="font-weight:700;font-size:14px;color:#1a1a1a;">Tony S.</div><div style="font-size:12px;color:rgba(0,0,0,0.38);">Spark Right Electrical</div></div>
+          <div style="width:42px;height:42px;background:linear-gradient(135deg,var(--red),#8B1A1A);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;flex-shrink:0;" data-cms="testimonials.items.2.initial">T</div>
+          <div><div data-cms="testimonials.items.2.name" style="font-weight:700;font-size:14px;color:#1a1a1a;">Tony S.</div><div data-cms="testimonials.items.2.company" style="font-size:12px;color:rgba(0,0,0,0.38);">Spark Right Electrical</div></div>
         </div>
       </div>
 
@@ -694,52 +694,52 @@
   <div style="max-width:760px;margin:0 auto;">
 
     <div style="text-align:center;margin-bottom:56px;">
-      <div class="label" style="margin-bottom:14px;">Questions</div>
-      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,6vw,70px);line-height:0.93;color:#1a1a1a;">
+      <div class="label" data-cms="faq.label" style="margin-bottom:14px;">Questions</div>
+      <h2 data-cms="faq.headline" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,6vw,70px);line-height:0.93;color:#1a1a1a;">
         COMMON <span style="color:var(--red);">QUESTIONS</span>
       </h2>
     </div>
 
     <div class="faq-item">
-      <button class="faq-q" onclick="faq(this)">How long does it take to build my website?
+      <button class="faq-q" onclick="faq(this)"><span data-cms="faq.items.0.question">How long does it take to build my website?</span>
         <svg class="faq-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </button>
-      <div class="faq-a"><p style="color:rgba(0,0,0,0.6);font-size:14px;line-height:1.75;padding-bottom:20px;">Most websites are done in 3–5 business days from when I have your info. Complex multi-page sites may take up to 7 days. I'll give you an exact timeline on our discovery call.</p></div>
+      <div class="faq-a"><p data-cms="faq.items.0.answer" style="color:rgba(0,0,0,0.6);font-size:14px;line-height:1.75;padding-bottom:20px;">Most websites are done in 3–5 business days from when I have your info. Complex multi-page sites may take up to 7 days. I'll give you an exact timeline on our discovery call.</p></div>
     </div>
 
     <div class="faq-item">
-      <button class="faq-q" onclick="faq(this)">Do I need to provide content and photos?
+      <button class="faq-q" onclick="faq(this)"><span data-cms="faq.items.1.question">Do I need to provide content and photos?</span>
         <svg class="faq-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </button>
-      <div class="faq-a"><p style="color:rgba(0,0,0,0.6);font-size:14px;line-height:1.75;padding-bottom:20px;">I write all the copy — just give me the basics about your business. For photos I use professional stock images, but real job photos always convert better if you have them.</p></div>
+      <div class="faq-a"><p data-cms="faq.items.1.answer" style="color:rgba(0,0,0,0.6);font-size:14px;line-height:1.75;padding-bottom:20px;">I write all the copy — just give me the basics about your business. For photos I use professional stock images, but real job photos always convert better if you have them.</p></div>
     </div>
 
     <div class="faq-item">
-      <button class="faq-q" onclick="faq(this)">Will my website show up on Google?
+      <button class="faq-q" onclick="faq(this)"><span data-cms="faq.items.2.question">Will my website show up on Google?</span>
         <svg class="faq-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </button>
-      <div class="faq-a"><p style="color:rgba(0,0,0,0.6);font-size:14px;line-height:1.75;padding-bottom:20px;">Every site is built with clean structure, fast load times, and proper page titles — the basics that help search engines understand your business. Beyond that, showing up in Google takes time and more than just a website.</p></div>
+      <div class="faq-a"><p data-cms="faq.items.2.answer" style="color:rgba(0,0,0,0.6);font-size:14px;line-height:1.75;padding-bottom:20px;">Every site is built with clean structure, fast load times, and proper page titles — the basics that help search engines understand your business. Beyond that, showing up in Google takes time and more than just a website.</p></div>
     </div>
 
     <div class="faq-item">
-      <button class="faq-q" onclick="faq(this)">I already have a website — can you redesign it?
+      <button class="faq-q" onclick="faq(this)"><span data-cms="faq.items.3.question">I already have a website — can you redesign it?</span>
         <svg class="faq-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </button>
-      <div class="faq-a"><p style="color:rgba(0,0,0,0.6);font-size:14px;line-height:1.75;padding-bottom:20px;">Absolutely — redesigns are a big part of what I do. I'll take your brand and rebuild it from scratch into something that actually converts. Same process, same turnaround.</p></div>
+      <div class="faq-a"><p data-cms="faq.items.3.answer" style="color:rgba(0,0,0,0.6);font-size:14px;line-height:1.75;padding-bottom:20px;">Absolutely — redesigns are a big part of what I do. I'll take your brand and rebuild it from scratch into something that actually converts. Same process, same turnaround.</p></div>
     </div>
 
     <div class="faq-item">
-      <button class="faq-q" onclick="faq(this)">Who handles hosting and the domain?
+      <button class="faq-q" onclick="faq(this)"><span data-cms="faq.items.4.question">Who handles hosting and the domain?</span>
         <svg class="faq-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </button>
-      <div class="faq-a"><p style="color:rgba(0,0,0,0.6);font-size:14px;line-height:1.75;padding-bottom:20px;">I handle all setup — hosting, domain connection, SSL certificate, speed optimization. You own everything. Hosting runs about $10–15/month direct to you, no markup from me.</p></div>
+      <div class="faq-a"><p data-cms="faq.items.4.answer" style="color:rgba(0,0,0,0.6);font-size:14px;line-height:1.75;padding-bottom:20px;">I handle all setup — hosting, domain connection, SSL certificate, speed optimization. You own everything. Hosting runs about $10–15/month direct to you, no markup from me.</p></div>
     </div>
 
     <div class="faq-item">
-      <button class="faq-q" onclick="faq(this)">What happens after the site launches?
+      <button class="faq-q" onclick="faq(this)"><span data-cms="faq.items.5.question">What happens after the site launches?</span>
         <svg class="faq-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </button>
-      <div class="faq-a"><p style="color:rgba(0,0,0,0.6);font-size:14px;line-height:1.75;padding-bottom:20px;">Once your site is live it's yours. I'm available for ongoing updates, changes, or additions on a paid basis — just email me and I'll get back to you within 24 hours.</p></div>
+      <div class="faq-a"><p data-cms="faq.items.5.answer" style="color:rgba(0,0,0,0.6);font-size:14px;line-height:1.75;padding-bottom:20px;">Once your site is live it's yours. I'm available for ongoing updates, changes, or additions on a paid basis — just email me and I'll get back to you within 24 hours.</p></div>
     </div>
 
   </div>
@@ -759,7 +759,7 @@
           <div style="width:36px;height:36px;background:var(--red);border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:16px;color:#fff;">WE</div>
           <span style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.04em;color:#fff;">Web By Ethan</span>
         </div>
-        <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.65;">Making Saskatoon businesses look better online. High-converting websites for local service companies.</p>
+        <p data-cms="footer.tagline" style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.65;">Making Saskatoon businesses look better online. High-converting websites for local service companies.</p>
       </div>
 
       <div>
@@ -784,7 +784,7 @@
     </div>
 
     <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;">
-      <p style="font-size:12px;color:rgba(255,255,255,0.6);">© 2026 Web By Ethan. All rights reserved.</p>
+      <p data-cms="footer.copyright" style="font-size:12px;color:rgba(255,255,255,0.6);">© 2026 Web By Ethan. All rights reserved.</p>
       <p style="font-size:12px;color:rgba(255,255,255,0.6);">🇨🇦 Proudly Saskatoon Based.</p>
     </div>
   </div>
@@ -921,6 +921,30 @@ void main(void){
   requestAnimationFrame(loop);
 })();
 
+</script>
+
+<!-- Tina CMS content loader -->
+<script>
+(function() {
+  fetch('/content/pages/home.json?v=' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      document.querySelectorAll('[data-cms]').forEach(function(el) {
+        var path = el.getAttribute('data-cms').split('.');
+        var val = data;
+        for (var i = 0; i < path.length; i++) {
+          if (val == null) return;
+          val = val[path[i]];
+        }
+        if (val !== undefined && val !== null) {
+          el.innerHTML = val;
+        }
+      });
+    })
+    .catch(function() {
+      // Silently fail — static HTML content is the fallback
+    });
+})();
 </script>
 </body>
 </html>
