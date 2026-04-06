@@ -1,4 +1,4 @@
-// tina/config.ts
+// tina/config.js
 import { defineConfig } from "tinacms";
 var config_default = defineConfig({
   branch: process.env.GITHUB_BRANCH || "main",
