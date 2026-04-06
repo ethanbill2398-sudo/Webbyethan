@@ -22,8 +22,7 @@ var config_default = defineConfig({
         path: "content/pages",
         format: "json",
         ui: {
-          allowedActions: { create: false, delete: false },
-          router: () => "/"
+          allowedActions: { create: false, delete: false }
         },
         fields: [
           // ── HERO ──────────────────────────────────────────────────────────
